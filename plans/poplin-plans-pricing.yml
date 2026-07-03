@@ -1,0 +1,141 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Poplin
+providerId: poplin
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Laundry
+- On-Demand
+- Gig Economy
+- Marketplace
+- Plans
+description: >-
+  Poplin has no public developer program and therefore no per-API pricing.
+  What is publicly documented is consumer-facing service pricing: customers
+  pay per pound of laundry through the Poplin app, and independent Laundry
+  Pros are paid out of that revenue for pickup, wash/dry/fold, and delivery.
+  This file records the real, sourced consumer pricing model rather than any
+  fabricated API tier.
+notes: >-
+  These are laundry-service prices, not API plans. There is no API to meter
+  or bill. Prices vary by market; figures below reflect the "most zip codes"
+  rate published by Poplin as of the review date.
+sources:
+- https://poplin.zendesk.com/hc/en-us/articles/15462163795355-Price
+- https://poplin.zendesk.com/hc/en-us/articles/15462201773595-Estimated-Cost
+- https://poplin.co/laundry-price-calculator
+- https://poplin.co/blog/how-much-does-poplin-cost-lets-talk-dollars-and-pounds
+- https://poplin.co/business
+plans:
+- id: poplin-standard
+  name: Standard (Next-Day)
+  type: usage
+  description: >-
+    Next-day wash, dry, and fold. Pickup and delivery are free. Billed per
+    pound of laundry with a per-order minimum.
+  entries:
+  - label: Per-Pound Rate
+    description: Most zip codes; higher in some markets.
+    name: standard_per_pound
+    type: usage
+    metric: pound
+    limit: -1
+    timeFrame: order
+    geo: US
+    unit: 1
+    price: '$1.00/lb'
+    userMultiplied: false
+  - label: Order Minimum
+    description: Typical minimum charge per Standard order.
+    name: standard_minimum
+    type: flat
+    metric: order
+    limit: 1
+    timeFrame: order
+    geo: US
+    unit: 1
+    price: '$30 minimum'
+    userMultiplied: false
+  elements:
+  - name: Free Pickup and Delivery
+  - name: Next-Day Turnaround
+- id: poplin-express
+  name: Express (Same-Day/Overnight)
+  type: usage
+  description: >-
+    Same-day or overnight wash, dry, and fold. Pickup and delivery are free.
+    Billed per pound of laundry with a higher per-order minimum than Standard.
+  entries:
+  - label: Per-Pound Rate
+    description: Most zip codes; higher in some markets.
+    name: express_per_pound
+    type: usage
+    metric: pound
+    limit: -1
+    timeFrame: order
+    geo: US
+    unit: 1
+    price: '$2.00/lb'
+    userMultiplied: false
+  - label: Order Minimum
+    description: Typical minimum charge per Express order.
+    name: express_minimum
+    type: flat
+    metric: order
+    limit: 1
+    timeFrame: order
+    geo: US
+    unit: 1
+    price: '$40 minimum'
+    userMultiplied: false
+  elements:
+  - name: Free Pickup and Delivery
+  - name: Same-Day / Overnight Turnaround
+- id: poplin-add-ons
+  name: Add-Ons
+  type: usage
+  description: Per-item surcharge on top of per-pound pricing for oversized items.
+  entries:
+  - label: Oversized Item Surcharge
+    description: e.g. comforters; added in addition to per-pound cost.
+    name: oversized_item
+    type: flat
+    metric: item
+    limit: -1
+    timeFrame: order
+    geo: US
+    unit: 1
+    price: '+$8/item'
+    userMultiplied: false
+  elements:
+  - name: Comforters and Bulky Items
+- id: poplin-business
+  name: Business / SMB (Property Management, Hospitality)
+  type: enterprise
+  description: >-
+    Volume laundry service for short-term rental operators, hospitality, and
+    other multi-location businesses. Onboarded via sales and a dedicated
+    account manager rather than a public rate card or API. Poplin directs
+    prospects processing over 1,000 lbs/week to contact sales directly.
+  entries:
+  - label: Business Account
+    description: Custom terms negotiated per account; no published per-API or per-partner SKU.
+    name: business_account
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: usage
+    geo: US
+    unit: 1
+    price: 'contact sales'
+    userMultiplied: false
+  elements:
+  - name: Dedicated Account Manager
+  - name: Multi-Location Support
+  - name: Mobile App Ordering and Tracking
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

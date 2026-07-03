@@ -1,0 +1,67 @@
+aid: poplin
+url: https://raw.githubusercontent.com/api-evangelist/poplin/refs/heads/main/apis.yml
+name: Poplin
+kind: company
+description: Poplin (formerly SudShare) is a nationwide on-demand laundry pickup and
+  delivery marketplace connecting customers with independent, work-from-home "Laundry
+  Pros" who wash, dry, and fold laundry, serving 500+ cities and 150,000+ customers.
+  Poplin operates two consumer-facing mobile apps - the customer app and the Laundry
+  Pro app - plus a Laundry Pro web portal (laundry-pro.poplin.co), but it does not
+  expose a public or partner developer API. No developer portal or API reference was
+  found at poplin.co, and the api.poplin.co subdomain resolves but returns a bare 404
+  with no documentation, indicating internal-only use. Business/SMB accounts (property
+  managers, hospitality) are onboarded through sales and an account manager rather
+  than through self-service API keys.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Laundry
+- On-Demand
+- Gig Economy
+- Marketplace
+- Delivery
+- Consumer
+created: '2026-07-03'
+modified: '2026-07-03'
+specificationVersion: '0.19'
+apis:
+- aid: poplin:poplin-api
+  name: Poplin API
+  tags:
+  - Laundry
+  - On-Demand
+  - Gig Economy
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://poplin.co/about
+  description: Poplin does not expose a public, self-service API. Ordering, scheduling,
+    Laundry Pro matching, pricing, and payment all flow through Poplin's own customer
+    and Laundry Pro mobile apps rather than open developer endpoints. The api.poplin.co
+    host resolves but serves no public documentation (bare 404 as of the profiling
+    date), and no developer.poplin.co, developers.poplin.co, docs.poplin.co, or
+    partners.poplin.co subdomain resolves at all. Any business integration (SMB /
+    property-management accounts) is negotiated manually through sales and an account
+    manager, not through a published API.
+  properties:
+  - type: x-status
+    url: https://poplin.co/about
+    x-note: No public developer portal or open API documentation as of 2026-07-03;
+      api.poplin.co returns a bare 404.
+common:
+- type: Website
+  url: https://poplin.co
+- type: LinkedIn
+  url: https://www.linkedin.com/company/poplin-co
+- type: LaundryProPortal
+  url: https://laundry-pro.poplin.co
+- type: HelpCenter
+  url: https://poplin.zendesk.com/hc/en-us
+- type: Business
+  url: https://poplin.co/business
+- type: Plans
+  url: plans/poplin-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/poplin-rate-limits.yml
+- type: FinOps
+  url: finops/poplin-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

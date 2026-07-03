@@ -1,0 +1,46 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Poplin
+providerId: poplin
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Laundry
+- On-Demand
+- Gig Economy
+- Marketplace
+- Rate Limiting
+description: >-
+  Poplin publishes no API rate limits because it publishes no public API.
+  There is no developer-facing throughput, concurrency, or quota
+  documentation anywhere on poplin.co or any Poplin subdomain.
+notes: |
+  This file exists to record the absence honestly, matching the API
+  Evangelist convention for providers with no public developer surface
+  (see mcdonalds). No limits are fabricated below.
+sources:
+- https://poplin.co/
+- https://poplin.co/business
+- https://api.poplin.co/
+responseCodes:
+  throttled: null
+  serviceUnavailable: null
+limits:
+- name: No Public API Rate Limits
+  scope: n/a
+  metric: n/a
+  limit: 'not applicable - no public API exists'
+  applies:
+  - Poplin API
+  notes: >-
+    Poplin's own customer and Laundry Pro mobile apps talk to an internal
+    backend (api.poplin.co resolves but returns a bare 404 to unauthenticated
+    external requests). No throughput, concurrency, or quota limits are
+    documented for external/developer use because no external/developer use
+    is offered.
+policies: []
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

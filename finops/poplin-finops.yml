@@ -1,0 +1,142 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Poplin
+providerId: poplin
+publisherName: Poplin Technologies
+serviceCategory: Laundry / Gig Marketplace
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Laundry
+- On-Demand
+- Gig Economy
+- Marketplace
+- FinOps
+- FOCUS
+description: >-
+  FOCUS-aligned FinOps shape for Poplin: a two-sided laundry marketplace with
+  no public API and therefore no per-API-call billing. Economics are driven by
+  per-pound consumer service revenue on one side, and per-order payouts to
+  independent "Laundry Pros" on the other; Poplin's take is the spread between
+  the two.
+notes: |
+  No public per-API pricing exists because there is no public API. Meters
+  below represent marketplace economic units (pounds processed, orders,
+  Laundry Pro payouts) sourced from Poplin's public pricing and marketing
+  pages, not from any billing API.
+sources:
+- https://poplin.zendesk.com/hc/en-us/articles/15462163795355-Price
+- https://poplin.co/blog/how-much-does-poplin-cost-lets-talk-dollars-and-pounds
+- https://poplin.co/about
+- https://poplin.co/business
+principles:
+- name: Visibility
+  description: >-
+    Poplin (internally) can track per-pound revenue by market and turnaround
+    tier (Standard vs Express) via its own app telemetry; no third party can,
+    since there is no public API or usage-export mechanism.
+  metricNote: |
+    Publicly, the only visible unit economics are the advertised per-pound
+    consumer rates ($1/lb Standard, $2/lb Express) and order minimums ($30 /
+    $40); Laundry Pro payout share is not publicly broken out.
+- name: Allocation
+  description: >-
+    Allocate by service tier (Standard vs Express), market/zip code (rates
+    vary by market), and channel (consumer vs Business/SMB accounts, which
+    are billed on negotiated terms rather than the public rate card).
+- name: Optimization
+  description: >-
+    For a Business/SMB account, optimization means negotiating volume rates
+    directly with Poplin sales once weekly volume exceeds the ~1,000 lb/week
+    threshold Poplin cites for contact-sales engagement, and favoring Standard
+    over Express where next-day turnaround is acceptable.
+- name: Accountability
+  description: >-
+    Without a public API or usage export, a business customer's only
+    accountability mechanism is its own order history in the Poplin app plus
+    its account manager relationship; there is no programmatic cost-reporting
+    integration.
+domains:
+- name: Understand Usage and Cost
+  capabilities:
+  - Allocation
+  - Reporting and Analytics
+- name: Quantify Business Value
+  capabilities:
+  - Planning and Estimating
+  - Unit Economics
+- name: Optimize Usage and Cost
+  capabilities:
+  - Workload Optimization
+- name: Manage the FinOps Practice
+  capabilities:
+  - Onboarding Workloads
+billingModel:
+  pricingCategory: Per-Pound Consumer Service (Not API Metered)
+  billingFrequency: Per-order
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: Poplin Laundry Pickup and Delivery
+  ServiceCategory: Laundry / Gig Marketplace
+  ProviderName: Poplin
+  PublisherName: Poplin Technologies
+  InvoiceIssuerName: Poplin Technologies
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+- name: pounds_processed
+  description: Pounds of laundry washed, dried, and folded per order.
+  unit: pound
+  aggregation: sum
+  dimensions:
+  - service_tier
+  - market
+- name: orders_completed
+  description: Completed Standard or Express laundry orders.
+  unit: order
+  aggregation: sum
+  dimensions:
+  - service_tier
+  - market
+- name: laundry_pro_payout
+  description: >-
+    Amount paid out to the independent Laundry Pro who fulfilled an order;
+    not publicly broken out as a percentage of the consumer price.
+  unit: USD
+  aggregation: sum
+  dimensions:
+  - market
+apis:
+- name: Poplin API
+  baseURL: https://api.poplin.co
+  tags:
+  - Laundry
+  - On-Demand
+  - Gig Economy
+  serviceName: Poplin API
+  serviceCategory: API
+  x-note: Host resolves but serves no public API; not a billable, documented surface.
+unitEconomics:
+- name: Revenue per Pound (Standard)
+  metric: standard_revenue / pounds_processed
+  target: '$1.00/lb (most zip codes)'
+- name: Revenue per Pound (Express)
+  metric: express_revenue / pounds_processed
+  target: '$2.00/lb (most zip codes)'
+- name: Laundry Pro Payout Share
+  metric: laundry_pro_payout / standard_revenue
+  target: 'not publicly disclosed'
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

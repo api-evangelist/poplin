@@ -1,0 +1,79 @@
+aid: poplin
+name: Poplin
+review:
+  question: Does Poplin expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-03'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Poplin publishes no public API of any
+    kind - REST, GraphQL, or otherwise - for a WebSocket surface to be
+    compared against or modeled from. Order status, Laundry Pro matching,
+    and messaging all happen inside Poplin's own first-party customer and
+    Laundry Pro mobile apps, with no documented external protocol.
+findings:
+  summary: |
+    Poplin does not publish a documented public API of any kind, so it also
+    does not publish a documented public WebSocket API. Poplin is a two-sided
+    laundry pickup-and-delivery marketplace (customers and independent
+    "Laundry Pros") operated entirely through first-party mobile apps and a
+    Laundry Pro web portal (laundry-pro.poplin.co). No developer.poplin.co,
+    developers.poplin.co, docs.poplin.co, or partners.poplin.co subdomain
+    resolves. The api.poplin.co subdomain resolves at the DNS/HTTP level but
+    returns a bare HTTP 404 with no documentation, consistent with an internal
+    backend used only by Poplin's own apps rather than a published developer
+    surface. The Poplin Business page (SMB / property-management laundry)
+    describes account-manager-led onboarding with no mention of an API,
+    webhook, or SDK. No realtime, bidirectional, or streaming WebSocket
+    (ws:// or wss://) endpoint - or any other API endpoint - is documented
+    anywhere in Poplin's public web presence.
+  openSource: |
+    Poplin is closed-source, venture-backed software (formerly branded
+    SudShare; founded 2017, based in Minneapolis, MN; ~$10M raised from
+    investors including Headline and Starting Line). There is no
+    self-hostable or open-source component.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public REST API reference exists anywhere on poplin.co or any Poplin subdomain.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Poplin's public web presence as of the review date.
+  endpointsConfirmedRest: []
+sources:
+  - url: https://poplin.co/
+    type: Website
+    note: Consumer marketing site; footer links to About, Contact, Careers, and social - no developer/API/partners link.
+  - url: https://poplin.co/about
+    type: Documentation
+    note: Company background (founded 2017, Minneapolis MN, 500+ cities, 150,000+ customers); no API mention.
+  - url: https://poplin.co/business
+    type: Documentation
+    note: SMB/property-management laundry offering; account-manager-led onboarding via mobile app, no API/webhook/SDK mentioned.
+  - url: https://laundry-pro.poplin.co/intro
+    type: Documentation
+    note: Laundry Pro (gig-worker) web portal intro - worker-facing app surface, not a developer API portal.
+  - url: https://poplin.zendesk.com/hc/en-us/articles/15462163795355-Price
+    type: Documentation
+    note: Consumer pricing help article - $1/lb standard, $2/lb express, free pickup/delivery.
+  - url: https://poplin.co/laundry-price-calculator
+    type: Documentation
+    note: Consumer price calculator confirming per-pound pricing model.
+  - url: https://api.poplin.co/
+    type: x-probe
+    note: Subdomain resolves over HTTPS but returns a bare HTTP 404 with no documentation - checked directly during this review (2026-07-03).
+  - url: https://developer.poplin.co/
+    type: x-probe
+    note: Does not resolve (DNS failure) - checked directly during this review (2026-07-03).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No API surface of any kind is publicly documented, so there is nothing to
+    model as AsyncAPI. This entry records Poplin as a consumer/gig-marketplace
+    company with no public or partner developer API, per API Evangelist's
+    honest-stub convention (see mcdonalds, puma) rather than fabricating
+    endpoints.
