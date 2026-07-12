@@ -46,6 +46,8 @@ apis:
     x-note: No public developer portal or open API documentation as of 2026-07-03;
       api.poplin.co returns a bare 404.
 common:
+- type: DomainSecurity
+  url: security/poplin-domain-security.yml
 - type: Website
   url: https://poplin.co
 - type: LinkedIn
