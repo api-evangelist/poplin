@@ -29,11 +29,6 @@ Poplin has **no public, self-service developer API**. This entry documents that 
 
 ## APIs
 
-### Poplin API
-
-Poplin does not expose a public, self-service API. Ordering, scheduling, Laundry Pro matching, pricing, and payment all flow through Poplin's own customer and Laundry Pro mobile apps rather than open developer endpoints. The api.poplin.co host resolves but serves no public documentation (bare 404 as of the profiling date), and no developer.poplin.co, developers.poplin.co, docs.poplin.co, or partners.poplin.co subdomain resolves at all. Any business integration (SMB / property-management accounts) is negotiated manually through sales and an account manager, not through a published API.
-
-- **Human URL:** [https://poplin.co/about](https://poplin.co/about)
 
 #### Tags
 
