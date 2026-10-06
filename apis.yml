@@ -35,10 +35,12 @@ tags:
   - Delivery
   - Consumer
 created: '2026-07-03'
-modified: '2026-07-25'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+  - url: https://poplin.co/press
+    type: Blog
   - type: DomainSecurity
     url: security/poplin-domain-security.yml
   - type: Website
