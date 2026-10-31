@@ -1,4 +1,4 @@
-# Poplin (poplin)
+# Poplin
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,67 +66,96 @@
 
 Poplin (formerly SudShare) is a nationwide on-demand laundry pickup and delivery marketplace connecting customers with independent, work-from-home "Laundry Pros" who wash, dry, and fold laundry, serving 500+ cities and 150,000+ customers. Poplin operates two consumer-facing mobile apps - the customer app and the Laundry Pro app - plus a Laundry Pro web portal (laundry-pro.poplin.co), but it does not expose a public or partner developer API. No developer portal or API reference was found at poplin.co, and the api.poplin.co subdomain resolves but returns a bare 404 with no documentation, indicating internal-only use. Business/SMB accounts (property managers, hospitality) are onboarded through sales and an account manager rather than through self-service API keys.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/poplin/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/poplin/refs/heads/main/apis.yml)
+**Areas:** Laundry · On-Demand · Gig Economy · Marketplace · Delivery · Consumer
 
-## Access Model
+## Poplin on APIs.io
 
-Poplin has **no public, self-service developer API**. This entry documents that finding honestly rather than modeling endpoints that don't exist:
+Everything profiled for Poplin is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/poplin/](https://apis.io/providers/poplin/)** — or go straight to one of the APIs or properties below.
 
-- No `developer.poplin.co`, `developers.poplin.co`, `docs.poplin.co`, or `partners.poplin.co` subdomain resolves.
-- `api.poplin.co` resolves but returns a bare HTTP 404 with no documentation - consistent with an internal backend host for Poplin's own consumer and Laundry Pro apps, not a public API surface.
-- The [Poplin Business](https://poplin.co/business) page (SMB / property-management / hospitality laundry) describes account-manager-led onboarding and a mobile app for ordering and tracking; it makes no mention of an API, webhook, or SDK.
-- All customer ordering, Laundry Pro job matching/acceptance, scheduling, and payment happen inside Poplin's own first-party apps.
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Laundry
-- On-Demand
-- Gig Economy
-- Marketplace
-- Delivery
-- Consumer
+#### Security (1)
 
-## Timestamps
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Created:** 2026-07-03
-- **Modified:** 2026-07-03
+- [Poplin Domain Security](https://apis.io/security/poplin/poplin-domain-security/)
 
-## APIs
+#### Plans and pricing (1)
 
+Published plans, tiers and prices.
 
-#### Tags
+- [Poplin Plans Pricing](https://apis.io/plans/poplin/poplin-plans-pricing/)
 
-- Laundry
-- On-Demand
-- Gig Economy
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [x-status](https://poplin.co/about) — No public developer portal or open API documentation as of 2026-07-03; api.poplin.co returns a bare 404.
+- [Poplin Rate Limits](https://apis.io/rate-limits/poplin/poplin-rate-limits/)
 
-## Pricing (Consumer Service, Not API)
+#### FinOps (1)
 
-Poplin charges consumers per pound of laundry rather than metering any API:
+What the API costs to run, by operation.
 
-- **Standard (next-day):** $1/lb in most zip codes (higher in some markets); $30 typical minimum.
-- **Express (same-day/overnight):** $2/lb in most zip codes (higher in some markets); $40 typical minimum.
-- **Pickup and delivery:** free.
-- **Oversized items** (e.g. comforters): +$8 per item, in addition to per-pound cost.
+- [Poplin Finops](https://apis.io/finops/poplin/poplin-finops/)
 
-See [plans/poplin-plans-pricing.yml](plans/poplin-plans-pricing.yml) for the full sourced breakdown, including the two-sided marketplace economics between customers and Laundry Pros.
+## Where to find this API
 
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://poplin.co)
-- [LinkedIn](https://www.linkedin.com/company/poplin-co)
-- [Laundry Pro Portal](https://laundry-pro.poplin.co)
-- [Help Center](https://poplin.zendesk.com/hc/en-us)
-- [Business](https://poplin.co/business)
-- [Plans](plans/poplin-plans-pricing.yml)
-- [Rate Limits](rate-limits/poplin-rate-limits.yml)
-- [Fin Ops](finops/poplin-finops.yml)
+- [Blog](https://poplin.co/press)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 7.1** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 7.9 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/poplin/](https://apis.io/providers/poplin/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Poplin: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/poplin/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
